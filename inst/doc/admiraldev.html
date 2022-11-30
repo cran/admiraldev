@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', function(e) {
 </script>
 
 <style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
 
 
 
@@ -321,11 +321,12 @@ specific ADaM dataset. The new derivation function has one new
 <li>The derivation function should be closely looked at to see if it can
 be generalized to other ADaM datsets. If that is the case, then it
 should be moved to <code>{admiral}</code> core. If the function is very
-specific to onoclogy needs, then it should remain in
+specific to oncology needs, then it should remain in
 <code>{admiralonco}</code>.</li>
-<li>The <code>assert</code> custom checking functions should always live
-within <code>{admiraldev}</code> to stay with the family of
-<code>assertion</code> functions.</li>
+<li>The <code>assert</code> custom checking functions follow a similar
+principle - if they can be generalized to other therapeutic areas then
+move to <code>{admiraldev}</code>, whereas if very specific to oncology
+needs, then they should remain in <code>{admiralonco}</code>.</li>
 </ol>
 </div>
 </div>
