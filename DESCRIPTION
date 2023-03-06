@@ -1,7 +1,8 @@
 Package: admiraldev
 Type: Package
-Title: Development Tools for the Admiral Package Family
-Version: 0.2.0
+Title: Utility Functions and Development Tools for the Admiral Package
+        Family
+Version: 0.3.0
 Authors@R: c(
     person("Ben", "Straub", email = "ben.x.straub@gsk.com", role = c("aut", "cre")),
     person("Stefan", "Bundfuss", role = "aut"),
@@ -33,12 +34,14 @@ Imports: dplyr (>= 0.8.4), hms (>= 0.5.3), lifecycle (>= 0.1.0),
         lubridate (>= 1.7.4), magrittr (>= 1.5), purrr (>= 0.3.3),
         rlang (>= 0.4.4), stringr (>= 1.4.0), tidyr (>= 1.0.2),
         tidyselect (>= 1.0.0)
-Suggests: admiral.test, devtools, diffdf, lintr, pkgdown, testthat,
-        knitr, methods, miniUI, rmarkdown, roxygen2, rstudioapi,
-        spelling, styler, tibble, usethis, covr, DT
+Suggests: admiral.test, devtools, diffdf, lintr, pkgdown, testthat (>=
+        3.0.0), knitr, methods, miniUI, rmarkdown, roxygen2,
+        rstudioapi, spelling, styler, tibble, usethis, covr, DT,
+        htmltools
 VignetteBuilder: knitr
+Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2022-11-30 19:51:19 UTC; r590548
+Packaged: 2023-03-06 18:28:18 UTC; r590548
 Author: Ben Straub [aut, cre],
   Stefan Bundfuss [aut],
   Thomas Neitmann [aut],
@@ -55,4 +58,4 @@ Author: Ben Straub [aut, cre],
   GlaxoSmithKline LLC [cph, fnd]
 Maintainer: Ben Straub <ben.x.straub@gsk.com>
 Repository: CRAN
-Date/Publication: 2022-12-01 00:10:02 UTC
+Date/Publication: 2023-03-06 23:50:07 UTC
