@@ -2,7 +2,7 @@ Package: admiraldev
 Type: Package
 Title: Utility Functions and Development Tools for the Admiral Package
         Family
-Version: 0.5.0
+Version: 1.0.0
 Authors@R: c(
     person("Ben", "Straub", email = "ben.x.straub@gsk.com", role = c("aut", "cre")),
     person("Stefan", "Bundfuss", role = "aut"),
@@ -25,7 +25,7 @@ Description: Utility functions to check data, variables and conditions for funct
  with maintaining documentation, testing and general upkeep of 'admiral' and 'admiral' extension packages.  
 License: Apache License (>= 2)
 BugReports: https://github.com/pharmaverse/admiraldev/issues
-URL: https://pharmaverse.github.io/admiraldev/main/,
+URL: https://pharmaverse.github.io/admiraldev/,
         https://github.com/pharmaverse/admiraldev/
 Encoding: UTF-8
 Language: en-US
@@ -42,7 +42,7 @@ Suggests: pharmaversesdtm, devtools, diffdf, lintr, pkgdown, testthat
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2023-09-10 15:08:31 UTC; r590548
+Packaged: 2023-12-11 16:09:26 UTC; r590548
 Author: Ben Straub [aut, cre],
   Stefan Bundfuss [aut],
   Jeffrey Dickinson [aut],
@@ -60,4 +60,4 @@ Author: Ben Straub [aut, cre],
   GlaxoSmithKline LLC [cph, fnd]
 Maintainer: Ben Straub <ben.x.straub@gsk.com>
 Repository: CRAN
-Date/Publication: 2023-09-11 07:20:10 UTC
+Date/Publication: 2023-12-15 13:20:06 UTC
