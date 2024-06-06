@@ -14,8 +14,12 @@
 #' @export
 #'
 #' @examples
-#' library(pharmaversesdtm)
-#' data(dm)
+#' library(dplyr, warn.conflicts = FALSE)
+#' dm <- tribble(
+#'   ~USUBJID,           ~ARM,
+#'   "01-701-1015", "Placebo",
+#'   "01-701-1016", "Placebo",
+#' )
 #'
 #' ## No warning as `AAGE` doesn't exist in `dm`
 #' warn_if_vars_exist(dm, "AAGE")
@@ -24,15 +28,12 @@
 #' warn_if_vars_exist(dm, "ARM")
 warn_if_vars_exist <- function(dataset, vars) {
   existing_vars <- vars[vars %in% colnames(dataset)]
-  if (length(existing_vars) == 1L) {
-    msg <- paste("Variable", backquote(existing_vars), "already exists in the dataset")
-    warn(msg)
-  } else if (length(existing_vars) > 1L) {
-    msg <- paste("Variables", enumerate(existing_vars), "already exist in the dataset")
-    warn(msg)
-  } else {
-    invisible(NULL)
+  if (length(existing_vars) >= 1L) {
+    cli::cli_warn("{cli::qty(length(existing_vars))}Variable{?s} {.val {existing_vars}}
+                   already {?exists/exist} in the dataset.")
   }
+
+  invisible(NULL)
 }
 
 #' Warn If a Vector Contains Unknown Datetime Format
@@ -74,7 +75,7 @@ warn_if_invalid_dtc <- function(dtc, is_valid = is_valid_dtc(dtc)) {
       "Missing parts in the middle must be represented by a dash, e.g., 2003---15.",
       sep = "\n"
     )
-    warn(paste(main_msg, tbl, info, sep = "\n"))
+    cli::cli_warn(c(main_msg, "*" = tbl, "*" = info))
   }
 }
 

@@ -19,8 +19,11 @@
 #'
 #' @examples
 #' library(dplyr, warn.conflicts = FALSE)
-#' library(pharmaversesdtm)
-#' data(dm)
+#' dm <- tribble(
+#'   ~DOMAIN,  ~STUDYID,      ~USUBJID,
+#'   "DM",    "STUDY X", "01-701-1015",
+#'   "DM",    "STUDY X", "01-701-1016",
+#' )
 #'
 #' tmp_var <- get_new_tmp_var(dm)
 #' mutate(dm, !!tmp_var := NA)
@@ -28,7 +31,7 @@ get_new_tmp_var <- function(dataset, prefix = "tmp_var") {
   assert_data_frame(dataset, optional = TRUE)
   assert_character_scalar(prefix)
   if (!str_detect(prefix, "^tmp_")) {
-    abort("`prefix` must start with 'tmp_'")
+    cli_abort("{.arg prefix} must start with {.val tmp_}.")
   }
 
   caller_env <- parent.frame()
@@ -69,8 +72,11 @@ get_new_tmp_var <- function(dataset, prefix = "tmp_var") {
 #'
 #' @examples
 #' library(dplyr, warn.conflicts = FALSE)
-#' library(pharmaversesdtm)
-#' data(dm)
+#' dm <- tribble(
+#'   ~DOMAIN,  ~STUDYID,      ~USUBJID,
+#'   "DM",    "STUDY X", "01-701-1015",
+#'   "DM",    "STUDY X", "01-701-1016",
+#' )
 #' dm <- select(dm, USUBJID)
 #' tmp_var <- get_new_tmp_var(dm)
 #' dm <- mutate(dm, !!tmp_var := NA)

@@ -1,6 +1,6 @@
 ## Test 1: add variables ----
 test_that("process_set_values_to Test 1: add variables", {
-  bds <- tibble::tribble(
+  bds <- dplyr::tribble(
     ~USUBJID, ~AVAL,
     "1",         20,
     "2",         35
@@ -32,13 +32,14 @@ test_that("process_set_values_to Test 1: add variables", {
 
 ## Test 2: catch error ----
 test_that("process_set_values_to Test 2: catch error", {
-  bds <- tibble::tribble(
+  bds <- dplyr::tribble(
     ~USUBJID, ~AVAL,
     "1",         20,
     "2",         35
   )
 
-  expect_error(
+  expect_snapshot(
+    error = TRUE,
     process_set_values_to(
       bds,
       set_values_to = exprs(
@@ -46,21 +47,20 @@ test_that("process_set_values_to Test 2: catch error", {
         PARAM = "Body-Mass-Index",
         PARAMN = 1
       )
-    ),
-    "Assigning variables failed!\nset_values_to = (",
-    fixed = TRUE
+    )
   )
 })
 
 ## Test 3: check types ----
 test_that("process_set_values_to Test 3: check types", {
-  bds <- tibble::tribble(
+  bds <- dplyr::tribble(
     ~USUBJID, ~AVAL,
     "1",         20,
     "2",         35
   )
 
-  expect_error(
+  expect_snapshot(
+    error = TRUE,
     process_set_values_to(
       bds,
       set_values_to = exprs(
@@ -73,13 +73,6 @@ test_that("process_set_values_to Test 3: check types", {
         PARAM = "character",
         PARAMN = "numeric"
       )
-    ),
-    paste(
-      "The following variables have an unexpected type:",
-      "PARAMCD: expected: character, actual: numeric",
-      "PARAMN: expected: numeric, actual: character",
-      sep = "\n"
-    ),
-    fixed = TRUE
+    )
   )
 })

@@ -4,12 +4,43 @@
 \alias{assert_filter_cond}
 \title{Is an Argument a Filter Condition?}
 \usage{
-assert_filter_cond(arg, optional = FALSE)
+assert_filter_cond(
+  arg,
+  optional = FALSE,
+  arg_name = gsub("^enexpr\\\\((.*)\\\\)$", "\\\\1", rlang::caller_arg(arg)),
+  message = NULL,
+  class = "assert_filter_cond",
+  call = parent.frame()
+)
 }
 \arguments{
 \item{arg}{Quosure - filtering condition.}
 
 \item{optional}{Logical - is the argument optional? Defaults to \code{FALSE}.}
+
+\item{arg_name}{By default the expression specified for \code{arg} is used. If it is
+of the form \verb{enexpr(<argument name>)}, the \code{enexpr()} part is removed. For example
+if \code{arg = enexpr(filter_add)} is specified, \code{arg_name} defaults to \code{"filter_add"}}
+
+\item{message}{string passed to \code{cli::cli_abort(message)}.
+When \code{NULL}, default messaging is used (see examples for default messages).
+\code{"{arg_name}"} can be used in messaging.}
+
+\item{class}{Subclass of the condition.}
+
+\item{call}{The execution environment of a currently running
+function, e.g. \code{call = caller_env()}. The corresponding function
+call is retrieved and mentioned in error messages as the source
+of the error.
+
+You only need to supply \code{call} when throwing a condition from a
+helper function which wouldn't be relevant to mention in the
+message.
+
+Can also be \code{NULL} or a \link[rlang:topic-defuse]{defused function call} to
+respectively not display any call or hard-code a code to display.
+
+For more information about error calls, see \ifelse{html}{\link[rlang:topic-error-call]{Including function calls in error messages}}{\link[rlang:topic-error-call]{Including function calls in error messages}}.}
 }
 \value{
 Performs necessary checks and returns \code{arg} if all pass.
@@ -23,20 +54,23 @@ Check if \code{arg} is a suitable filtering condition to be used in
 functions like \code{subset} or \code{dplyr::filter}.
 }
 \examples{
-library(pharmaversesdtm)
 library(dplyr, warn.conflicts = FALSE)
 library(rlang)
-data(dm)
+dm <- dplyr::tribble(
+  ~DOMAIN,  ~STUDYID,      ~USUBJID, ~AGE,
+  "DM",    "STUDY X", "01-701-1015",   64,
+  "DM",    "STUDY X", "01-701-1016",   65,
+)
 
 # typical usage in a function as an argument check
 example_fun <- function(dat, x) {
-  x <- assert_filter_cond(enquo(x))
+  x <- assert_filter_cond(enexpr(x), arg_name = "x")
   filter(dat, !!x)
 }
 
 example_fun(dm, AGE == 64)
 
-try(example_fun(dm, USUBJID))
+try(assert_filter_cond(mtcars))
 }
 \seealso{
 Checks for valid input and returns warning or errors messages: 
@@ -45,8 +79,8 @@ Checks for valid input and returns warning or errors messages:
 \code{\link{assert_character_vector}()},
 \code{\link{assert_data_frame}()},
 \code{\link{assert_date_vector}()},
-\code{\link{assert_expr_list}()},
 \code{\link{assert_expr}()},
+\code{\link{assert_expr_list}()},
 \code{\link{assert_function}()},
 \code{\link{assert_integer_scalar}()},
 \code{\link{assert_list_element}()},

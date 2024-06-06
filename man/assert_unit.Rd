@@ -4,7 +4,16 @@
 \alias{assert_unit}
 \title{Asserts That a Parameter is Provided in the Expected Unit}
 \usage{
-assert_unit(dataset, param, required_unit, get_unit_expr)
+assert_unit(
+  dataset,
+  param,
+  required_unit,
+  get_unit_expr,
+  arg_name = rlang::caller_arg(required_unit),
+  message = NULL,
+  class = "assert_unit",
+  call = parent.frame()
+)
 }
 \arguments{
 \item{dataset}{A \code{data.frame}}
@@ -14,6 +23,28 @@ assert_unit(dataset, param, required_unit, get_unit_expr)
 \item{required_unit}{Expected unit}
 
 \item{get_unit_expr}{Expression used to provide the unit of \code{param}}
+
+\item{arg_name}{string indicating the label/symbol of the object being checked.}
+
+\item{message}{string passed to \code{cli::cli_abort(message)}.
+When \code{NULL}, default messaging is used (see examples for default messages).
+\code{"{arg_name}"} can be used in messaging.}
+
+\item{class}{Subclass of the condition.}
+
+\item{call}{The execution environment of a currently running
+function, e.g. \code{call = caller_env()}. The corresponding function
+call is retrieved and mentioned in error messages as the source
+of the error.
+
+You only need to supply \code{call} when throwing a condition from a
+helper function which wouldn't be relevant to mention in the
+message.
+
+Can also be \code{NULL} or a \link[rlang:topic-defuse]{defused function call} to
+respectively not display any call or hard-code a code to display.
+
+For more information about error calls, see \ifelse{html}{\link[rlang:topic-error-call]{Including function calls in error messages}}{\link[rlang:topic-error-call]{Including function calls in error messages}}.}
 }
 \value{
 The function throws an error if the unit variable differs from the
@@ -25,7 +56,8 @@ Checks if a parameter (\code{PARAMCD}) in a dataset is provided in the expected
 unit.
 }
 \examples{
-library(tibble)
+library(dplyr)
+
 advs <- tribble(
   ~USUBJID, ~VSTESTCD, ~VSTRESN, ~VSSTRESU, ~PARAMCD, ~AVAL,
   "P01",    "WEIGHT",      80.1, "kg",      "WEIGHT",  80.1,
@@ -41,8 +73,8 @@ Checks for valid input and returns warning or errors messages:
 \code{\link{assert_character_vector}()},
 \code{\link{assert_data_frame}()},
 \code{\link{assert_date_vector}()},
-\code{\link{assert_expr_list}()},
 \code{\link{assert_expr}()},
+\code{\link{assert_expr_list}()},
 \code{\link{assert_filter_cond}()},
 \code{\link{assert_function}()},
 \code{\link{assert_integer_scalar}()},

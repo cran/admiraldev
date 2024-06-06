@@ -4,10 +4,23 @@
 \alias{assert_same_type}
 \title{Are All Argument of the Same Type?}
 \usage{
-assert_same_type(...)
+assert_same_type(
+  ...,
+  .message = c("Arguments {.arg {arg_names}} must be the same type.", i =
+    paste("Argument types are", paste0("{.arg ", arg_names, "} {.cls ", types, "}",
+    collapse = ", "))),
+  .class = "assert_same_type",
+  .call = parent.frame()
+)
 }
 \arguments{
 \item{...}{Arguments to be checked}
+
+\item{.message}{character vector passed to \code{cli_abort(message)} when assertion fails.}
+
+\item{.class}{character vector passed to \code{cli_abort(class)} when assertion fails.}
+
+\item{.call}{environment passed to \code{cli_abort(call)} when assertion fails.}
 }
 \value{
 The function throws an error if not all arguments are of the same type.
@@ -39,8 +52,8 @@ Checks for valid input and returns warning or errors messages:
 \code{\link{assert_character_vector}()},
 \code{\link{assert_data_frame}()},
 \code{\link{assert_date_vector}()},
-\code{\link{assert_expr_list}()},
 \code{\link{assert_expr}()},
+\code{\link{assert_expr_list}()},
 \code{\link{assert_filter_cond}()},
 \code{\link{assert_function}()},
 \code{\link{assert_integer_scalar}()},

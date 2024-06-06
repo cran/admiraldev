@@ -1,10 +1,10 @@
-Package: admiraldev
 Type: Package
+Package: admiraldev
 Title: Utility Functions and Development Tools for the Admiral Package
         Family
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(
-    person("Ben", "Straub", email = "ben.x.straub@gsk.com", role = c("aut", "cre")),
+    person("Ben", "Straub", , "ben.x.straub@gsk.com", role = c("aut", "cre")),
     person("Stefan", "Bundfuss", role = "aut"),
     person("Jeffrey", "Dickinson", role = "aut"),
     person("Ross", "Farrugia", role = "aut"),
@@ -19,30 +19,29 @@ Authors@R: c(
     person("Ondrej", "Slama", role = "ctb"),
     person("F. Hoffmann-La Roche AG", role = c("cph", "fnd")),
     person("GlaxoSmithKline LLC", role = c("cph", "fnd"))
-    )
-Description: Utility functions to check data, variables and conditions for functions used in
- 'admiral' and 'admiral' extension packages.  Additional utility helper functions to assist developers 
- with maintaining documentation, testing and general upkeep of 'admiral' and 'admiral' extension packages.  
+  )
+Description: Utility functions to check data, variables and conditions for
+    functions used in 'admiral' and 'admiral' extension packages.
+    Additional utility helper functions to assist developers with
+    maintaining documentation, testing and general upkeep of 'admiral' and
+    'admiral' extension packages.
 License: Apache License (>= 2)
-BugReports: https://github.com/pharmaverse/admiraldev/issues
 URL: https://pharmaverse.github.io/admiraldev/,
         https://github.com/pharmaverse/admiraldev/
-Encoding: UTF-8
-Language: en-US
-RoxygenNote: 7.2.3
-Depends: R (>= 3.5)
-Imports: dplyr (>= 1.0.5), hms (>= 0.5.3), lifecycle (>= 0.1.0),
-        lubridate (>= 1.7.4), magrittr (>= 1.5), purrr (>= 0.3.3),
-        rlang (>= 0.4.4), stringr (>= 1.4.0), tidyr (>= 1.0.2),
-        tidyselect (>= 1.0.0)
-Suggests: pharmaversesdtm, devtools, diffdf, lintr, pkgdown, testthat
-        (>= 3.0.0), knitr, methods, miniUI, rmarkdown, roxygen2,
-        rstudioapi, spelling, styler, tibble, usethis, covr, DT,
-        htmltools
+BugReports: https://github.com/pharmaverse/admiraldev/issues
+Depends: R (>= 4.0)
+Imports: cli, dplyr (>= 1.0.5), glue (>= 1.6.0), lifecycle (>= 0.1.0),
+        lubridate (>= 1.7.4), purrr (>= 0.3.3), rlang (>= 0.4.4),
+        stringr (>= 1.4.0), tidyr (>= 1.0.2), tidyselect (>= 1.0.0)
+Suggests: diffdf, DT, htmltools, knitr, methods, pkgdown, rmarkdown,
+        spelling, testthat (>= 3.2.0), withr
 VignetteBuilder: knitr
 Config/testthat/edition: 3
+Encoding: UTF-8
+Language: en-US
+RoxygenNote: 7.3.1
 NeedsCompilation: no
-Packaged: 2023-12-11 16:09:26 UTC; r590548
+Packaged: 2024-06-06 17:15:52 UTC; r590548
 Author: Ben Straub [aut, cre],
   Stefan Bundfuss [aut],
   Jeffrey Dickinson [aut],
@@ -60,4 +59,4 @@ Author: Ben Straub [aut, cre],
   GlaxoSmithKline LLC [cph, fnd]
 Maintainer: Ben Straub <ben.x.straub@gsk.com>
 Repository: CRAN
-Date/Publication: 2023-12-15 13:20:06 UTC
+Date/Publication: 2024-06-06 22:10:14 UTC

@@ -1,7 +1,7 @@
 # get_constant_vars ----
 ## Test 1: without ignore_vars ----
 test_that("get_constant_vars Test 1: without ignore_vars", {
-  data <- tibble::tribble(
+  data <- dplyr::tribble(
     ~USUBJID, ~AGE, ~AVISIT,
     "1",      26,   "BASELINE",
     "1",      26,   "WEEK 1",
@@ -17,7 +17,7 @@ test_that("get_constant_vars Test 1: without ignore_vars", {
 
 ## Test 2: with ignore_vars ----
 test_that("get_constant_vars Test 2: with ignore_vars", {
-  data <- tibble::tribble(
+  data <- dplyr::tribble(
     ~USUBJID, ~AGE, ~WGTBL, ~HGTBL, ~AVISIT,
     "1",      26,   61,     172,    "BASELINE",
     "1",      26,   61,     172,    "WEEK 1",
@@ -72,6 +72,9 @@ test_that("get_source_vars Test 6: no source vars returns NULL", {
 # get_dataset ----
 ## Test 7: get_dataset works ----
 test_that("get_dataset Test 7: get_dataset works", {
+  admiraldev_environment$many_to_one <- NULL
+  admiraldev_environment$one_to_many <- NULL
+
   expect_equal(NULL, get_dataset("one_to_many"))
 })
 
@@ -79,6 +82,6 @@ test_that("get_dataset Test 7: get_dataset works", {
 test_that("get_dataset Test 8: get_dataset works", {
   expect_error(
     get_dataset("test"),
-    "`name` must be one of 'one_to_many' or 'many_to_one' but is 'test'"
+    class = "assert_character_scalar"
   )
 })
