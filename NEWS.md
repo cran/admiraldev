@@ -1,3 +1,52 @@
+# admiraldev 1.2.0
+
+## New Features
+
+- New Function `deprecate_inform()` is a wrapper around 
+  `lifecycle::deprecate_soft()` to allow for more control over messaging. (#466)
+
+## Updates of Existing Functions
+
+- Objects passed to `assert_list_element()` via the `...` argument can now be
+used in the glue expression specified for the `message_text` argument. (#469)
+
+- The `required_unit` argument of `assert_unit()` has been enhanced. It is now
+possible to specify more than one unit or not specify it at all. In the latter
+case only the uniqueness of the unit is checked. (#468)
+
+- The `assert_numeric_vector()` function gained an optional `length` argument to
+check whether the vector has a specific length. (#473)
+
+## Breaking Changes
+
+  - `{admiraldev}` is only compatible with R version >=4.1 (#456)
+  
+  - The following function arguments are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#459)
+
+      **Phase 1 (message)**
+      
+      No functions or arguments in this Phase
+
+      **Phase 2 (warning)**
+      
+      No functions or arguments in this Phase
+
+      **Phase 3 (error)**
+      
+      No functions or arguments in this Phase
+
+      **Phase 4 (removed)**
+      - The argument `quosures` was removed in the functions `vars2chr(quosures)`, `replace_values_by_names(quosures)`, and `get_source_vars(quosures)`
+      - Removed at v1.0.0 `assert_named_expr()`
+      - Removed at v1.0.0 `assert_has_variables()`
+      - Removed at v1.0.0 `assert_function_param()`
+
+## Documentation
+  - Deprecation Strategy updated for the long haul! (#466)
+
+## Other
+  - `devcontainer` files removed (#480)
+
 # admiraldev 1.1.0
 
 ## Updates of Existing Functions

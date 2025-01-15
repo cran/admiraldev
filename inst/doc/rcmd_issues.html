@@ -49,7 +49,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -410,7 +410,7 @@ That way your existing R packages are <em>not</em> overwritten.</p>
 <div id="package-dependencies" class="section level2">
 <h2>Package Dependencies</h2>
 <pre><code>&gt; checking package dependencies ... ERROR
-  Namespace dependency not required: ‘pkg’</code></pre>
+  Namespace dependency not required: &#39;pkg&#39;</code></pre>
 <p>Add <code>pkg</code> to the <code>Imports</code> or
 <code>Suggests</code> field in the <code>DESCRIPTION</code> file. In
 general, dependencies should be listed in the <code>Imports</code>
@@ -422,7 +422,7 @@ dependencies being installed.</p>
 <div id="global-variables" class="section level2">
 <h2>Global Variables</h2>
 <pre><code>❯ checking R code for possible problems ... NOTE
-  function_xyz: no visible binding for global variable ‘some_var’</code></pre>
+  function_xyz: no visible binding for global variable &#39;some_var&#39;</code></pre>
 <p>Add <code>some_var</code> to the list of “global” variables in
 <code>R/globals.R</code>.</p>
 </div>
@@ -430,7 +430,7 @@ dependencies being installed.</p>
 <h2>Undocumented Function Parameter</h2>
 <pre><code>❯ checking Rd \usage sections ... WARNING
   Undocumented arguments in documentation object &#39;function_xyz&#39;
-    ‘some_param’</code></pre>
+    &#39;some_param&#39;</code></pre>
 <p>Add an <code>@param some_param</code> section in the header of
 <code>function_xyz()</code> and run <code>devtools::document()</code>
 afterwards.</p>
