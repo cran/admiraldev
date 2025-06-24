@@ -247,13 +247,29 @@ consistently robust across all packages and maybe even fun!</p>
 <p>Tools are loosely defined as follows:</p>
 <ul>
 <li><p>Utility Functions used in <code>{admiral}</code> and
-<code>{admiral}</code> extension functions for doing custom checks and
+<code>{admiral}</code> extension packages for doing custom checks and
 providing custom messages, warnings and errors. These custom messages,
 warnings and errors are succinct, but helpful messaging around what a
 function expects as inputs. The inputs to admiral functions are many,
 but generally fit into three categories: datasets, variables and
 arguments. Most of the functions start with <code>assert_</code>,
 <code>is_</code> or <code>get_</code>.</p></li>
+<li><p>A roclet extending the standard <code>{roxygen2}</code>
+roclet:</p>
+<ul>
+<li>The <code>@permitted</code> tag is provided to document the
+permitted values for an argument.</li>
+<li>The default value is added automatically to the argument
+description. It can be overwritten by specifying the
+<code>@default</code> tag.</li>
+<li>The <code>@caption</code>, <code>@info</code>, and
+<code>@code</code> tags can be used to create a better structured
+example section. They allow to add a caption and TOC entry for each
+example and a description of the example.</li>
+</ul>
+<p>See <code>rdx_roclet()</code>, the example function
+<code>demo_fun()</code>, and Function Header Documentation in our
+Programming Strategy for more details.</p></li>
 <li><p>Utility functions that help with documentation, testing and
 checking on health of the code base in all admiral packages.</p></li>
 <li><p>Vignettes on working on <code>{admiral}</code> functions,

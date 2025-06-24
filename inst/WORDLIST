@@ -25,6 +25,7 @@ Golab
 Hoffmann
 IG
 Kabi
+Kangjie
 Kumari
 LLC
 LinkedIn
@@ -44,6 +45,7 @@ Quosures
 README
 RStudio
 Rimler
+Roclet
 Roxygen
 SDTM
 Samia
@@ -56,6 +58,9 @@ USUBJID
 USUBJIDs
 VSDTC
 VSTESTCD
+Zelos
+Zhang
+Zhu
 addin
 adex
 adlb
@@ -94,6 +99,7 @@ programmatically
 quosures
 repo
 reproducibility
+roclet
 roxygen
 styler
 testthat

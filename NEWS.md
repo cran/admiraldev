@@ -1,3 +1,33 @@
+# admiraldev 1.3.0
+
+## New Features
+
+- The `rdx_roclet()` extends the standard `{roxygen2}` roclet by the `@permitted`
+and `@default` tags to specify the permitted and default values and the
+`@caption`, `@info`, and `@code` tags for examples with a caption and a
+description. (#484)
+
+- `replace_symbol_in_expr()` and `add_suffix_to_vars()` no longer fail if the
+expression contains `NA`. (#490)
+
+## Updates of Existing Functions
+
+## Breaking Changes
+
+- The following function arguments are entering the next phase of the [deprecation process](https://pharmaverse.github.io/admiraldev/articles/programming_strategy.html#deprecation): (#2487) (#2595)
+
+    **Phase 1 (message)**
+  
+    **Phase 2 (warning)**
+    
+    **Phase 3 (error)**
+    
+    **Phase 4 (removed)**
+
+## Documentation
+
+## Various
+
 # admiraldev 1.2.0
 
 ## New Features
