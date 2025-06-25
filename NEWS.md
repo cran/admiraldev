@@ -1,3 +1,7 @@
+# admiraldev 1.3.1
+
+- Replace unicode characters in .Rd files (#499)
+
 # admiraldev 1.3.0
 
 ## New Features

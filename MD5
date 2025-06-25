@@ -1,6 +1,6 @@
-66bc0f774a1ebece4681df526641cc15 *DESCRIPTION
+ea619b82e30419c0bd4a92e94dd7ccea *DESCRIPTION
 30eae0e2706ee4a576a4216a5d762536 *NAMESPACE
-8e3bc128f54b3b64e8d3d9b6e8e4f65d *NEWS.md
+7d57ad39e1467e1e46199f7e745b4316 *NEWS.md
 15b5c4051d77029f0ece0c1d2b412536 *R/admiraldev-package.R
 c344e3472f54bb67b627baaf4dd70302 *R/admiraldev_environment.R
 fa28a9568faf4510e6a0e65a7692782c *R/assertions.R
@@ -17,7 +17,7 @@ b136e8eec148cbaa453e8f743002df34 *R/dataset_vignette.R
 7c9c176542361fb376edc3a20ef18e33 *R/process_set_values_to.R
 0cf57d1fb17fb7a6a71c3fcfe220524b *R/quo.R
 ff1703637935556af2947f1f4f318464 *R/quote.R
-9982fdb68658bd15a608f7ddb963aa67 *R/roclet_rdx.R
+e25d38cafd42a16058e2f97b62643b8f *R/roclet_rdx.R
 17b6a52bb11c53bec15a6bb8ae4e9a54 *R/tmp_vars.R
 0e40538dc743d869c5f3ccf04dcab915 *R/warnings.R
 59203eb6dc6bb6e7eca487eddef3738f *R/what.R
